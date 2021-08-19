@@ -37,4 +37,16 @@ class Migration(migrations.Migration):
                 'ordering': ['-created'],
             },
         ),
+        migrations.CreateModel(
+            name='Item',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('title', models.CharField(max_length=250)),
+                ('content', models.TextField(blank=True)),
+            ],
+            options={
+                'verbose_name': 'Item',
+                'verbose_name_plural': 'Items',
+            },
+        ),
     ]
