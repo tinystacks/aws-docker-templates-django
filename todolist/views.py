@@ -32,23 +32,23 @@ def index(request): #the index view
     return render(request, "index.html", {"todos": todos, "categories":categories, "items":items})
 
 @api_view(['GET', 'POST'])
-def item_list(request):
+def item_list(request): #the item_list view
     """
     List all items or create a new item
     """
-    if request.method == 'GET':
+    if request.method == 'GET': #checking if the request method is a GET
         items = ItemList.objects.all()
         serializer = ItemSerializer(items,many=True)
-        return Response(serializer.data)
-    elif request.method == 'POST':
+        return Response(serializer.data) #return all items
+    elif request.method == 'POST': #checking if the request method is a POST
         serializer = ItemSerializer(date=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.data, status=status.HTTP_201_CREATED) #return status if successful
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST) #return error if unsuccessful
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def item_detail(request, pk):
+def item_detail(request, pk): #the item_detail view
     """
     Retrieve, update, or delete an item
     """
@@ -57,18 +57,18 @@ def item_detail(request, pk):
     except ItemList.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     
-    if request.method == 'GET':
+    if request.method == 'GET': #checking if the request method is a GET
         serializer = ItemSerializer(item)
-        return Response(item.data)
-    elif request.method == 'PUT':
+        return Response(item.data) #return all items
+    elif request.method == 'PUT': #checking if the request method is a PUT
         serializer = ItemSerializer(item, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    elif request.method == 'DELETE':
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST) #return error if unsuccessful
+    elif request.method == 'DELETE': #checking if the request is a DELETE
         item.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_204_NO_CONTENT) #return status 
         
 class UserViewSet(viewsets.ModelViewSet):
     """
