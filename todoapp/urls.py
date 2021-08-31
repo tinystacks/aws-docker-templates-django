@@ -33,7 +33,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('', include(router.urls)),
     url(r'^admin/', admin.site.urls),
-    url(r'^$', index, name="TodoList"),
+    url(r'^$', index, name="ItemList"),
     path('todolist/', views.item_list),
     path('todolist/<int:pk>', views.item_detail),
 
