@@ -7,7 +7,7 @@ WORKDIR /
 COPY . .
 
 # Install app dependencies
-RUN pip install -r requirements.txt
+RUN pip3.7 install -r requirements.txt
 RUN python3 -m venv venv
 
 RUN python manage.py migrate
