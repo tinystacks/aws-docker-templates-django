@@ -6,7 +6,7 @@ from rest_framework import permissions
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from todolist.serializers import UserSerializer, GroupSerializer, ItemSerializer
+from itemslist.serializers import UserSerializer, GroupSerializer, ItemSerializer
 
 @api_view(['GET', 'POST', 'PUT', 'DELETE'])
 def index(request): #the index view
@@ -47,7 +47,7 @@ def item_list(request): #the item_list view
             return Response(serializer.data, status=status.HTTP_201_CREATED) #return status if successful
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST) #return error if unsuccessful
 
-@api_view(['GET', 'PUT', 'DELETE'])
+@api_view(['GET', 'PUT', 'DELETE']) 
 def item_detail(request, pk): #the item_detail view
     """
     Retrieve, update, or delete an item

@@ -1,4 +1,4 @@
-"""todoapp URL Configuration
+"""itemsAPP URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.urls import include, path
 from rest_framework import routers
-from todolist import views
+from itemslist import views
 from django.conf.urls import url
 from django.contrib import admin
-from todolist.views import index
+from itemslist.views import index
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
@@ -34,8 +34,8 @@ urlpatterns = [
     path('', include(router.urls)),
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name="ItemList"),
-    path('todolist/', views.item_list),
-    path('todolist/<int:pk>', views.item_detail),
+    path('itemslist/', views.item_list),
+    path('itemslist/<int:pk>', views.item_detail),
 
 ]
 
