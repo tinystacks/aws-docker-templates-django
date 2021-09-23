@@ -159,7 +159,7 @@ You can use Django's built-in administration UI to view, add, and delete items.
 
 The Dockerfile copies the sample application into a Docker image and runs a Django server. 
 
-A Dockerfile uses a Docker base image stored in a public Docker repoistory and then adds functionality to the image required by your application. This project's Dockerfile is derived from [Bitnami's Python 3.6 image](https://gallery.ecr.aws/bitnami/python), which is freely available on the [Amazon ECR Public Gallery](https://gallery.ecr.aws/). The Dockerfile performs the following steps: 
+A Dockerfile uses a Docker base image stored in a public Docker repository and then adds functionality to the image required by your application. This project's Dockerfile is derived from [Bitnami's Python 3.6 image](https://gallery.ecr.aws/bitnami/python), which is freely available on the [Amazon ECR Public Gallery](https://gallery.ecr.aws/). The Dockerfile performs the following steps: 
 
 * Copies the Django application into a working directory on the Docker image. 
 * Installs the contents of the `requirements.txt` file using pip. Requirements.txt contains a list of the Python modules that are required to run your Django application. The file included with this project installs Django; [the Django REST Framework](https://www.django-rest-framework.org/); and [whitenoise](http://whitenoise.evans.io/en/stable/), a package that enables serving static Web site content efficiently.
