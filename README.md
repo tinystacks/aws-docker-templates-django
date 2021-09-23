@@ -31,7 +31,7 @@ Further prerequisites for running these templates on AWS are provided below.
 
 ## Overview
 
-Django is a Python framework for developing Web applications. With Django, developers can quickly create object-relational database mappings, REST APIs, user front ends, and even administrative interfaces. Django implements a Model-View-Controller (MVC) pattern that separates the application's data (model) from its user interface (view) and busienss logic (controller), making it easy to write cleanly structured code. 
+Django is a Python framework for developing Web applications. With Django, developers can quickly create object-relational database mappings, REST APIs, user front ends, and even administrative interfaces. Django implements a Model-View-Controller (MVC) pattern that separates the application's data (model) from its user interface (view) and business logic (controller), making it easy to write cleanly structured code. 
 
 This template augments the existing power of Django by packaging your Django app into a Docker image, which can then be deployed onto AWS CodePipeline in a few simple steps. You can fork this repo into your own GitHub account and any changes you make to your Django application will automatically be updated via CodePipeline within minutes. 
 
@@ -66,7 +66,7 @@ class ItemList(models.Model):
         return self.title # name to be shown when called
 ```
 
-The application uses the [Django REST Framework](https://www.django-rest-framework.org/) to define REST API functions in the 'views.py' file. Two sets of API functions are defined. First, we define ViewSets for the `ItemList` class that we defined in our model. We also define ViewSets for the built-in Users and Groups objects in Django, which are used to implement a user authorization model. 
+The application uses the [Django REST Framework](https://www.django-rest-framework.org/) to define REST API functions in the 'views.py' file. Two sets of API functions are defined. First, we define [ViewSets](https://www.django-rest-framework.org/api-guide/viewsets/) for the `ItemList` class that we defined in our model. We also define ViewSets for the built-in Users and Groups objects in Django, which are used to implement a user authorization model. 
 
 ```python
 class ItemViewSet(viewsets.ModelViewSet):
@@ -78,7 +78,7 @@ class ItemViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 ```
 
-Second, we use the @api_view decorator to declare some more advanced API functions such as `item_list` view to view a list of items or to create a new item. method supports all possible CRUD operations for our application by implementing them as their respective HTTP verbs: 
+Second, we use the [`@api_view`](https://www.django-rest-framework.org/api-guide/views/#api_view) decorator to declare some more advanced API functions such as `item_list` view to view a list of items or to create a new item. method supports all possible CRUD operations for our application by implementing them as their respective HTTP verbs: 
 
 | Endpoint Type  | Description |
 | ------------- | ------------- |
