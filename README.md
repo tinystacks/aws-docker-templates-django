@@ -66,7 +66,7 @@ class ItemList(models.Model):
         return self.title # name to be shown when called
 ```
 
-The application uses the [Django REST Framework](https://www.django-rest-framework.org/) to define REST API functions in the 'views.py' file. Two sets of API functions are defined. First, we define [ViewSets](https://www.django-rest-framework.org/api-guide/viewsets/) for the `ItemList` class that we defined in our model. We also define ViewSets for the built-in Users and Groups objects in Django, which are used to implement a user authorization model. 
+The application uses the [Django REST Framework](https://www.django-rest-framework.org/) to define REST API functions in the `views.py` file. Two sets of API functions are defined. First, we define [ViewSets](https://www.django-rest-framework.org/api-guide/viewsets/) for the `ItemList` class that we defined in our model. We also define ViewSets for the built-in Users and Groups objects in Django, which are used to implement a user authorization model. 
 
 ```python
 class ItemViewSet(viewsets.ModelViewSet):
