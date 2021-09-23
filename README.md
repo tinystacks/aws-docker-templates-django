@@ -78,7 +78,7 @@ class ItemViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 ```
 
-Second, we use the [`@api_view`](https://www.django-rest-framework.org/api-guide/views/#api_view) decorator to declare some more advanced API functions such as `item_list` view to view a list of items or to create a new item. method supports all possible CRUD operations for our application by implementing them as their respective HTTP verbs: 
+Second, we use the [`@api_view`](https://www.django-rest-framework.org/api-guide/views/#api_view) decorator to declare some more advanced API functions such as the `item_list` view to view a list of items or to create a new item. The `/itemslist` REST method supports all possible CRUD operations for our application by implementing them as their respective HTTP verbs: 
 
 | Endpoint Type  | Description |
 | ------------- | ------------- |
