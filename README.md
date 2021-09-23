@@ -23,7 +23,7 @@ This sample code is made available under a BSD 3-Clause license. See the LICENSE
 
 This solution makes use of a Docker image that comes with Python pre-installed; Django dependencies are installed dynamically when the Docker container is created. If you wish to run just the Docker container locally, you will only need Docker.
 
-If you wish to build and test the Django application directly on your own machine (i.e., not from a Docker container), you should have [Python](https://www.python.org/downloads/), [Django](https://docs.djangoproject.com/en/3.2/intro/install/), and [Docker](https://docs.docker.com/get-docker/) installed locally.
+If you wish to build and test the Django application directly on your own machine (i.e., not from a Docker container), you should have [Python](https://www.python.org/downloads/) installed locally.
 
 This document also assumes that you have access to an AWS account. If you do not have one, [create one before getting started](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/).
 
