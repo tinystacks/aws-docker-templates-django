@@ -8,7 +8,16 @@ This sample code is made available under a BSD 3-Clause license. See the LICENSE
 
 ## Outline
 
-
+- [Prerequisites](#prerequisites)
+- [Overview](#overview)
+  - [Sample Application](#sample-application)
+  - [Running the Django Server Directly](#running-the-django-server-directly)
+  - [Dockerfile](#dockerfile)
+  - [Build Template](#build-template)
+  - [Release Template](#release-template)
+- [Getting Started](#getting-started)
+  - [Existing Project](#existing-project)
+- [Known Limitations](#known-limitations)
 
 ## Prerequisites
 
