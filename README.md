@@ -1,6 +1,6 @@
 ## AWS Docker Templates - Django
 
-The AWS Docker Templates for Django from TinyStacks enable launching a [Django](https://www.djangoproject.com/) application as a Docker container using an AWS CodePipeline pipeline. The template includes its own small Django sample application, enabling developers to start a new Django project immediately. Developers can also take the AWS CodePipeline-specific files in this template and use them to ship an existing Django application as a Docker image on AWS. 
+The AWS Docker Templates for Django from TinyStacks enable launching a [Django](https://www.djangoproject.com/) application as a Docker container using AWS CodePipeline. The template includes its own small Django sample application, enabling developers to start a new Django project immediately. Developers can also take the AWS CodePipeline-specific files in this template and use them to ship an existing Django application as a Docker image on AWS. 
 
 ## License
 
