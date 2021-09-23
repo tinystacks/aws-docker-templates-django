@@ -183,7 +183,7 @@ To test that the server is running, test its `/ping` endpoint by navigating to `
 
 The `build.yml` file is an AWS CodeBuild file that builds your Dockerfile and publishes the output to an Amazon ECR registry. 
 
-To publish to Amazon ECR, the build script first needs to obtain login credentials to the cluster. It does this using a combination of the AWS CLI command `aws ecr get-login-password` and the `docker login` command. After authentication, the script then builds your Docker image, names it, and tags it with the name `latest` to mark it as the most recent build. Finally, it performs a `docker push`, publishing the new Docker image to your Amazon ECR Docker repository.
+To publish to Amazon ECR, the build script first needs to obtain login credentials to the repository. It does this using a combination of the AWS CLI command `aws ecr get-login-password` and the `docker login` command. After authentication, the script then builds your Docker image, names it, and tags it with the name `latest` to mark it as the most recent build. Finally, it performs a `docker push`, publishing the new Docker image to your Amazon ECR Docker repository.
 
 ```yml
 version: 0.2
