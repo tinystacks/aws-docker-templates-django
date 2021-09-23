@@ -87,7 +87,7 @@ Second, we use the [`@api_view`](https://www.django-rest-framework.org/api-guide
 | POST  | Update  |
 | DELETE  | Delete  |
 
-To expose these methods publicly in Django as API endpoints, we must define *routes * (URL paths) that map to the functions. These are defined in `itemsAPP\urls.py`: 
+To expose these methods publicly in Django as API endpoints, we must define *routes* (URL paths) that map to the functions. These are defined in `itemsAPP\urls.py`: 
 
 ```python
 urlpatterns = [
