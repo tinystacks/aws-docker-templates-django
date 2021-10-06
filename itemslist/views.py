@@ -38,10 +38,16 @@ def item_list(request): #the item_list view
     """
     if request.method == 'GET': #checking if the request method is a GET
         items = ItemList.objects.all()
-        serializer = ItemSerializer(items,many=True)
+        serializer_context = {
+            'request': request,
+        }        
+        serializer = ItemSerializer(items, many=True, context=serializer_context)
         return Response(serializer.data) #return all items
     elif request.method == 'POST': #checking if the request method is a POST
-        serializer = ItemSerializer(date=request.data)
+        serializer_context = {
+            'request': request,
+        }                
+        serializer = ItemSerializer(data=request.data, context=serializer_context)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED) #return status if successful
@@ -61,7 +67,10 @@ def item_detail(request, pk): #the item_detail view
         serializer = ItemSerializer(item)
         return Response(item.data) #return all items
     elif request.method == 'PUT': #checking if the request method is a PUT
-        serializer = ItemSerializer(item, data=request.data)
+        serializer_context = {
+            'request': request,
+        }
+        serializer = ItemSerializer(item, context=serializer_context)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
