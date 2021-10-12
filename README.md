@@ -263,4 +263,6 @@ The values in the **ALLOWED_HOSTS** array are matched against the request sender
 ALLOWED_HOSTS = ['*']
 ```
 
-If you are releasing an API that is only available to certain applications, it is recommended that you follow the principle of least privilege and set the **ALLOWED_HOSTS** array to limit requests to authorized callers. For more information on **ALLOWED_HOSTS**, [see the Django settings documentation](https://docs.djangoproject.com/en/3.2/ref/settings/).
+If you are using Amazon API Gateway as the entry point to your Django REST API, you should instead set this to the host name used by your gateway. 
+
+For more information on **ALLOWED_HOSTS**, [see the Django settings documentation](https://docs.djangoproject.com/en/3.2/ref/settings/).
