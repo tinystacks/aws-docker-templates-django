@@ -17,7 +17,8 @@ This sample code is made available under a BSD 3-Clause license. See the LICENSE
   - [Release Template](#release-template)
 - [Getting Started](#getting-started)
   - [Existing Project](#existing-project)
-- [Known Limitations](#known-limitations)
+- [Preparing for Production Deployment](#preparing-for-production-deployment)
+  - [Turning Off Debug and Setting ALLOWED_HOSTS](#turning-off-debug-and-setting-allowed_hosts)
 
 ## Prerequisites
 
@@ -242,6 +243,24 @@ If your project is not Dockerized, you will also need to copy over the Dockerfil
 EXPOSE 80
 ```
 
-## Known Limitations
+## Preparing for Production Deployment
 
 The method of running a Django server discussed above is recommended for development purposes only. For shipping a production Django application, the Django team recommends running your server using Gunicorn. For more information, [see Django's guide to production deployments](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Deployment).
+
+### Turning Off Debug and Setting ALLOWED_HOSTS
+
+By default, your Django application is set to run with debugging turned on. This is set in the `itemsAPP\settings.py` file on this line: 
+
+```python
+DEBUG = True
+```
+
+If you change **DEBUG** to `False`, you will be required to set a value for the **ALLOWED_HOSTS** environment setting in the same file. If you do not, your Django application will throw an error and will not run. 
+
+The values in the **ALLOWED_HOSTS** array are matched against the request sender's HTTP **Host** header. If this value does not match an entry in the **ALLOWED_HOSTS** list, the request is denied. Currently, this value is blank. You can set it to `*` to allow traffic from any location:
+
+```python
+ALLOWED_HOSTS = ['*']
+```
+
+If you are releasing an API that is only available to certain applications, it is recommended that you follow the principle of least privilege and set the **ALLOWED_HOSTS** array to limit requests to authorized callers. For more information on **ALLOWED_HOSTS**, [see the Django settings documentation](https://docs.djangoproject.com/en/3.2/ref/settings/).
