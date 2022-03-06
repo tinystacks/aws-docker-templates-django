@@ -3,14 +3,16 @@ FROM public.ecr.aws/bitnami/python:3.6
 # Create app directory
 WORKDIR /
 
+# Install app dependencies
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt
+
 # Bundle app source
 COPY . .
 
-# Install app dependencies
-RUN pip install -r requirements.txt
+# Migrate and run server
+EXPOSE 8000
 
-RUN python manage.py migrate
-
-# run server
-EXPOSE 80
-CMD python manage.py runserver 0.0.0.0:80
+# Run the script
+ENTRYPOINT ["sh", "/django.sh"]
