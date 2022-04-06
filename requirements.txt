@@ -1,3 +1,4 @@
-django
-djangorestframework
-whitenoise
+Django==3.2.8
+psycopg2-binary===2.8.6
+djangorestframework==3.12.4
+
