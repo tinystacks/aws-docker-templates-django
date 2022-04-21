@@ -172,10 +172,10 @@ If you have Docker installed, you can build and try out the sample application l
 docker build -t tinystacks/django-crud-app:latest .
 ```
 
-Once built, run the Docker command locally, mapping port 8080 on your host machine to port 80 on the container: 
+Once built, run the Docker command locally, mapping port 8080 on your host machine to port 8000 on the container: 
 
 ```
-docker run -p 8080:80 -d tinystacks/django-crud-app:latest
+docker run -p 8080:8000 -d tinystacks/django-crud-app:latest
 ```
 
 To test that the server is running, test its `/ping` endpoint by navigating to `http://127.0.0.1:8080/ping` from a Web browser. You should see the same page you saw earlier when running Django locally. 
@@ -237,10 +237,10 @@ If you already have an existing Django application, you can use the core files i
 
 If your project is already Dockerized (i.e., it has its own Dockerfile), then simply copy over the `build.yml` and `release.yml` files into the root of your existing project. 
 
-If your project is not Dockerized, you will also need to copy over the Dockerfile included in this sample. If your application uses a different port than port 80, you will also need to update the `EXPOSE` line in the Dockerfile to use a different port:
+If your project is not Dockerized, you will also need to copy over the Dockerfile included in this sample. If your application uses a different port than port 8000, you will also need to update the `EXPOSE` line in the Dockerfile to use a different port:
 
 ```Dockerfile
-EXPOSE 80
+EXPOSE 8000
 ```
 
 ## Preparing for Production Deployment
